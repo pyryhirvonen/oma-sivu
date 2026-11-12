@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071d49">
+  <meta name="description" content="Kutsu Suomen itsenäisyyspäivän juhliin 6.12. Vesilahdella.">
+  <title>Itsenäisyyspäivän juhlat</title>
+  <style>
+    :root {
+      --navy: #071d49;
+      --blue: #1454a4;
+      --sky: #dcecff;
+      --ice: #f5f9ff;
+      --white: #ffffff;
+      --gold: #c9a55b;
+      --ink: #17243b;
+      --muted: #64728a;
+      --shadow: 0 24px 70px rgba(7, 29, 73, .18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255,255,255,.9) 0 1px, transparent 2px),
+        radial-gradient(circle at 87% 24%, rgba(255,255,255,.8) 0 1px, transparent 2px),
+        linear-gradient(135deg, #edf5ff 0%, #fff 47%, #e8f2ff 100%);
+      background-size: 180px 180px, 240px 240px, auto;
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      position: relative;
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+      overflow: hidden;
+      padding: 2rem 1rem;
+    }
+
+    .page::before,
+    .page::after {
+      position: absolute;
+      width: 26rem;
+      height: 26rem;
+      border: 1px solid rgba(20, 84, 164, .12);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+    }
+
+    .page::before {
+      top: -15rem;
+      right: -9rem;
+      box-shadow: 0 0 0 2rem rgba(20, 84, 164, .035), 0 0 0 5rem rgba(20, 84, 164, .025);
+    }
+
+    .page::after {
+      bottom: -19rem;
+      left: -12rem;
+      box-shadow: 0 0 0 2rem rgba(201, 165, 91, .06), 0 0 0 5rem rgba(201, 165, 91, .035);
+    }
+
+    .invitation {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: min(100%, 70rem);
+      grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, .84);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 46rem;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2.5rem, 7vw, 6rem);
+      color: var(--white);
+      background:
+        linear-gradient(150deg, rgba(7, 29, 73, .94), rgba(20, 84, 164, .84)),
+        var(--navy);
+      isolation: isolate;
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -5rem;
+      bottom: -7rem;
+      width: 26rem;
+      height: 26rem;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 2rem rgba(255, 255, 255, .04), 0 0 0 5rem rgba(255, 255, 255, .025);
+      content: "";
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 0 0 2.2rem;
+      color: #b7d5ff;
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 2.6rem;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      letter-spacing: -.035em;
+    }
+
+    h1 {
+      max-width: 11ch;
+      margin: 0;
+      font-size: clamp(3.2rem, 8vw, 6.6rem);
+      line-height: .96;
+    }
+
+    .intro {
+      max-width: 29rem;
+      margin: 2.2rem 0 0;
+      color: #d9e8ff;
+      font-size: 1.08rem;
+    }
+
+    .cross {
+      position: absolute;
+      top: 2.5rem;
+      right: 3rem;
+      width: 3.6rem;
+      height: 3.6rem;
+      opacity: .8;
+    }
+
+    .cross::before,
+    .cross::after {
+      position: absolute;
+      background: var(--white);
+      box-shadow: 0 0 18px rgba(255, 255, 255, .3);
+      content: "";
+    }
+
+    .cross::before {
+      top: 1.55rem;
+      width: 100%;
+      height: .42rem;
+    }
+
+    .cross::after {
+      left: 1.55rem;
+      width: .42rem;
+      height: 100%;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2.5rem, 6vw, 5rem);
+      background: rgba(255, 255, 255, .75);
+    }
+
+    .details h2 {
+      margin: 0 0 2rem;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .event-details {
+      display: grid;
+      gap: 1.45rem;
+      margin: 0;
+    }
+
+    .event-details div {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: .85rem;
+      align-items: start;
+    }
+
+    .event-details dt {
+      color: var(--blue);
+      font-size: 1.1rem;
+      line-height: 1.45;
+    }
+
+    .event-details dd {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.02rem;
+    }
+
+    .event-details strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.14rem;
+      font-weight: 700;
+    }
+
+    .dress-code {
+      position: relative;
+      margin: 2.8rem 0;
+      padding: 1.35rem 1.5rem;
+      border: 1px solid #d5e5fb;
+      border-radius: .75rem;
+      background: linear-gradient(135deg, #f8fbff, #edf5ff);
+    }
+
+    .dress-code::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: .28rem;
+      border-radius: .75rem 0 0 .75rem;
+      background: var(--gold);
+      content: "";
+    }
+
+    .label {
+      display: block;
+      margin-bottom: .28rem;
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .dress-code strong {
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+    }
+
+    .rsvp {
+      padding-top: 1.9rem;
+      border-top: 1px solid #dbe7f6;
+    }
+
+    .rsvp h3 {
+      margin: 0 0 .5rem;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .rsvp p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .contact {
+      display: grid;
+      gap: .35rem;
+      color: var(--blue);
+      font-size: .95rem;
+      font-weight: 700;
+    }
+
+    .contact span {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: .78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 0;
+      }
+
+      .invitation {
+        min-height: 100vh;
+        grid-template-columns: 1fr;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .hero {
+        min-height: 34rem;
+        justify-content: flex-start;
+        padding: 7rem 2rem 3.5rem;
+      }
+
+      .cross {
+        top: 2rem;
+        right: 2rem;
+      }
+
+      .details {
+        padding: 3.5rem 2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="invitation">
+      <section class="hero" aria-labelledby="page-title">
+        <span class="cross" aria-hidden="true"></span>
+        <p class="eyebrow">Juhlakutsu</p>
+        <h1 id="page-title">Itsenäisyyspäivän juhlat</h1>
+        <p class="intro">Olet lämpimästi tervetullut juhlistamaan Suomen itsenäisyyttä kanssamme.</p>
+      </section>
+
+      <section class="details" aria-labelledby="details-title">
+        <h2 id="details-title">Tervetuloa mukaan</h2>
+
+        <dl class="event-details">
+          <div>
+            <dt aria-hidden="true">✦</dt>
+            <dd><span class="label">Päivämäärä</span><strong>6.12.</strong></dd>
+          </div>
+          <div>
+            <dt aria-hidden="true">◷</dt>
+            <dd><span class="label">Aika</span><strong>klo 16.00</strong></dd>
+          </div>
+          <div>
+            <dt aria-hidden="true">⌖</dt>
+            <dd><span class="label">Paikka</span><strong>Rautialantie 139</strong>37470 Vesilahti</dd>
+          </div>
+        </dl>
+
+        <div class="dress-code">
+          <span class="label">Pukukoodi</span>
+          <strong>Ykköset päälle</strong>
+        </div>
+
+        <div class="rsvp">
+          <h3>Ilmoittautuminen</h3>
+          <p>Ilmoittaudu viimeistään 1.12.</p>
+          <div class="contact">
+            <span>[SÄHKÖPOSTI]</span>
+            <span>[PUHELIN]</span>
+          </div>
+        </div>
+
+        <p class="footer-note">Sinivalkoisin terveisin</p>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
