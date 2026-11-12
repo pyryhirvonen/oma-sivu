@@ -290,18 +290,33 @@
       font-size: .94rem;
     }
 
-    .contact {
-      display: grid;
-      gap: .35rem;
-      color: var(--blue);
-      font-size: .95rem;
+    .rsvp-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 10rem;
+      padding: .8rem 1.4rem;
+      border: 1px solid var(--navy);
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--navy);
+      box-shadow: 0 .45rem 1rem rgba(7, 29, 73, .16);
+      font-size: .9rem;
       font-weight: 700;
+      letter-spacing: .04em;
+      text-decoration: none;
+      transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
     }
 
-    .contact span {
-      display: block;
-      color: var(--ink);
-      font-weight: 500;
+    .rsvp-link:hover {
+      background: var(--blue);
+      box-shadow: 0 .65rem 1.25rem rgba(7, 29, 73, .22);
+      transform: translateY(-1px);
+    }
+
+    .rsvp-link:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
     }
 
     .footer-note {
@@ -386,10 +401,7 @@
         <div class="rsvp">
           <h3>Ilmoittautuminen</h3>
           <p>Ilmoittaudu viimeistään 1.12.</p>
-          <div class="contact">
-            <span>[SÄHKÖPOSTI]</span>
-            <span>[PUHELIN]</span>
-          </div>
+          <a class="rsvp-link" href="https://docs.google.com/forms/d/e/1FAIpQLScVdSoCoW6KMlnkTlvGUpVQacHHO3mnTJPqnD1VUBpPZyV5oQ/viewform?usp=sharing&amp;ouid=111069160714917270015" target="_blank" rel="noopener noreferrer">Ilmoittaudu</a>
         </div>
 
         <p class="footer-note">Sinivalkoisin terveisin</p>
